@@ -1,0 +1,124 @@
+/* ================= NAVBAR : THEME 1 ================= */
+
+/* ROOT HEIGHT (used in body padding) */
+
+
+/* MAIN NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+    
+     width: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(143, 55, 151, 0.651);   /* dark with slight transparency */
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 4%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    overflow-y: auto;
+}
+
+/* SHADOW ON SCROLL (optional, JS already exists) */
+.navbar.scrolled {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* LOGO AREA */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 38px;
+}
+
+/* .logo h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+} */
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    list-style: none;
+}
+
+/* LINKS */
+.nav-links a {
+    position: relative;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 6px 0;
+    transition: color 0.25s ease;
+}
+
+/* HOVER + ACTIVE */
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--white);
+}
+
+/* ORANGE UNDERLINE EFFECT */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* ================= MOBILE NAVBAR ================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: var(--header-height);
+        right: 0;
+
+        width: 100%;
+        background: #020617;
+        flex-direction: column;
+        gap: 18px;
+        padding: 25px 0;
+
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+}
